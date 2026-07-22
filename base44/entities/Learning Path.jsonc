@@ -1,0 +1,100 @@
+{
+  "name": "LearningPath",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "enum": [
+        "AI",
+        "Cybersecurity",
+        "Cloud",
+        "Python",
+        "Java",
+        "JavaScript",
+        "DevOps",
+        "Linux",
+        "Networking",
+        "Blockchain"
+      ]
+    },
+    "skill_level": {
+      "type": "string",
+      "title": "Skill Level",
+      "enum": [
+        "Beginner",
+        "Intermediate",
+        "Advanced"
+      ],
+      "default": "Beginner"
+    },
+    "estimated_duration": {
+      "type": "string",
+      "title": "Estimated Duration"
+    },
+    "number_of_labs": {
+      "type": "integer",
+      "title": "Number of Labs",
+      "default": 0
+    },
+    "number_of_projects": {
+      "type": "integer",
+      "title": "Number of Projects",
+      "default": 0
+    },
+    "progress": {
+      "type": "integer",
+      "title": "Progress",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "recommended_next_step": {
+      "type": "string",
+      "title": "Recommended Next Step"
+    },
+    "icon": {
+      "type": "string",
+      "title": "Icon Name"
+    },
+    "cover_image_url": {
+      "type": "string",
+      "title": "Cover Image URL"
+    },
+    "color_accent": {
+      "type": "string",
+      "title": "Color Accent",
+      "default": "electric"
+    },
+    "modules": {
+      "type": "array",
+      "title": "Modules",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "lessons": {
+            "type": "integer"
+          },
+          "completed": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "title",
+    "category"
+  ]
+}

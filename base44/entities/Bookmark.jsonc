@@ -1,0 +1,26 @@
+{
+  "name": "Bookmark",
+  "type": "object",
+  "properties": {
+    "article_id": {
+      "type": "string",
+      "title": "Article ID"
+    },
+    "article_title": {
+      "type": "string",
+      "title": "Article Title"
+    },
+    "article_type": {
+      "type": "string",
+      "title": "Article Type",
+      "enum": [
+        "blog",
+        "news"
+      ],
+      "default": "blog"
+    }
+  },
+  "required": [
+    "article_id"
+  ]
+}

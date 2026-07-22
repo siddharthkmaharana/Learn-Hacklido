@@ -1,0 +1,75 @@
+{
+  "name": "Lab",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "type": {
+      "type": "string",
+      "title": "Type",
+      "enum": [
+        "PocketCTF",
+        "Blue Box",
+        "Red Quest"
+      ]
+    },
+    "difficulty": {
+      "type": "string",
+      "title": "Difficulty",
+      "enum": [
+        "Easy",
+        "Medium",
+        "Hard",
+        "Insane"
+      ],
+      "default": "Easy"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "xp_reward": {
+      "type": "integer",
+      "title": "XP Reward",
+      "default": 100
+    },
+    "duration": {
+      "type": "string",
+      "title": "Estimated Duration"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "Not Started",
+        "In Progress",
+        "Completed"
+      ],
+      "default": "Not Started"
+    },
+    "content": {
+      "type": "string",
+      "title": "Content",
+      "description": "Lab content and instructions"
+    },
+    "cover_image_url": {
+      "type": "string",
+      "title": "Cover Image URL"
+    },
+    "color_accent": {
+      "type": "string",
+      "title": "Color Accent",
+      "default": "cyan"
+    }
+  },
+  "required": [
+    "title",
+    "type"
+  ]
+}

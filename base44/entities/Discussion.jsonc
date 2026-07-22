@@ -1,0 +1,61 @@
+{
+  "name": "Discussion",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "content": {
+      "type": "string",
+      "title": "Content"
+    },
+    "author": {
+      "type": "string",
+      "title": "Author"
+    },
+    "author_avatar": {
+      "type": "string",
+      "title": "Author Avatar URL"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "enum": [
+        "General",
+        "AI",
+        "Cybersecurity",
+        "Cloud",
+        "DevOps",
+        "Programming",
+        "Career"
+      ]
+    },
+    "replies_count": {
+      "type": "integer",
+      "title": "Replies Count",
+      "default": 0
+    },
+    "upvotes": {
+      "type": "integer",
+      "title": "Upvotes",
+      "default": 0
+    },
+    "tags": {
+      "type": "array",
+      "title": "Tags",
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_pinned": {
+      "type": "boolean",
+      "title": "Pinned",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "category"
+  ]
+}

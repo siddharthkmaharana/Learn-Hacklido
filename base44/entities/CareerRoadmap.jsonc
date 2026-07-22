@@ -1,0 +1,82 @@
+{
+  "name": "CareerRoadmap",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Career Title"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "estimated_time": {
+      "type": "string",
+      "title": "Estimated Learning Time"
+    },
+    "prerequisites": {
+      "type": "array",
+      "title": "Prerequisites",
+      "items": {
+        "type": "string"
+      }
+    },
+    "certifications": {
+      "type": "array",
+      "title": "Certifications",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "related_labs": {
+      "type": "array",
+      "title": "Related Labs",
+      "items": {
+        "type": "string"
+      }
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "icon": {
+      "type": "string",
+      "title": "Icon Name"
+    },
+    "color_accent": {
+      "type": "string",
+      "title": "Color Accent",
+      "default": "indigo"
+    },
+    "nodes": {
+      "type": "array",
+      "title": "Roadmap Nodes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

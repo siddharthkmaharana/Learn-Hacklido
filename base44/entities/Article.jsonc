@@ -1,0 +1,61 @@
+{
+  "name": "Article",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "content": {
+      "type": "string",
+      "title": "Content"
+    },
+    "excerpt": {
+      "type": "string",
+      "title": "Excerpt"
+    },
+    "cover_image_url": {
+      "type": "string",
+      "title": "Cover Image URL"
+    },
+    "author": {
+      "type": "string",
+      "title": "Author"
+    },
+    "tags": {
+      "type": "array",
+      "title": "Tags",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reading_time": {
+      "type": "integer",
+      "title": "Reading Time (minutes)",
+      "default": 5
+    },
+    "publish_date": {
+      "type": "string",
+      "title": "Publish Date",
+      "format": "date"
+    },
+    "type": {
+      "type": "string",
+      "title": "Type",
+      "enum": [
+        "blog",
+        "news"
+      ],
+      "default": "blog"
+    },
+    "featured": {
+      "type": "boolean",
+      "title": "Featured",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "type"
+  ]
+}

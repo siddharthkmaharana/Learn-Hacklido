@@ -1,0 +1,50 @@
+{
+  "name": "Achievement",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "icon": {
+      "type": "string",
+      "title": "Icon Name"
+    },
+    "xp_reward": {
+      "type": "integer",
+      "title": "XP Reward",
+      "default": 50
+    },
+    "rarity": {
+      "type": "string",
+      "title": "Rarity",
+      "enum": [
+        "Common",
+        "Rare",
+        "Epic",
+        "Legendary"
+      ],
+      "default": "Common"
+    },
+    "earned_date": {
+      "type": "string",
+      "title": "Earned Date",
+      "format": "date"
+    },
+    "user_name": {
+      "type": "string",
+      "title": "User Name"
+    },
+    "user_avatar": {
+      "type": "string",
+      "title": "User Avatar URL"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

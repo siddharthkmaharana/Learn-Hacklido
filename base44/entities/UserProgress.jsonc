@@ -1,0 +1,77 @@
+{
+  "name": "UserProgress",
+  "type": "object",
+  "properties": {
+    "learning_path_id": {
+      "type": "string",
+      "title": "Learning Path ID"
+    },
+    "progress": {
+      "type": "integer",
+      "title": "Progress",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "xp": {
+      "type": "integer",
+      "title": "XP Points",
+      "default": 0
+    },
+    "streak": {
+      "type": "integer",
+      "title": "Learning Streak (days)",
+      "default": 0
+    },
+    "completed_labs": {
+      "type": "array",
+      "title": "Completed Lab IDs",
+      "items": {
+        "type": "string"
+      }
+    },
+    "certificates": {
+      "type": "array",
+      "title": "Certificates",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "earned_date": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "bookmarks": {
+      "type": "array",
+      "title": "Bookmarked Article IDs",
+      "items": {
+        "type": "string"
+      }
+    },
+    "daily_challenge_completed": {
+      "type": "boolean",
+      "title": "Daily Challenge Completed",
+      "default": false
+    },
+    "activity_timeline": {
+      "type": "array",
+      "title": "Activity Timeline",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": []
+}

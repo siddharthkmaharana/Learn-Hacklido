@@ -6,56 +6,70 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
-import Home from '@/pages/Home';
 // Add page imports here
+import Home from './pages/Home';
+import Learn from './pages/Learn';
+import Practice from './pages/Practice';
+import Explore from './pages/Explore';
+import Careers from './pages/Careers';
+import Community from './pages/Community';
+import Pricing from './pages/Pricing';
+import About from './pages/About';
 
 const AuthenticatedApp = () => {
-    const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
+  const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
-    // Show loading spinner while checking app public settings or auth
-    if (isLoadingPublicSettings || isLoadingAuth) {
-        return (
-            <div className="fixed inset-0 flex items-center justify-center">
-                <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
-            </div>
-        );
-    }
-
-    // Handle authentication errors
-    if (authError) {
-        if (authError.type === 'user_not_registered') {
-            return <UserNotRegisteredError />;
-        } else if (authError.type === 'auth_required') {
-            // Redirect to login automatically
-            navigateToLogin();
-            return null;
-        }
-    }
-
-    // Render the main app
+  // Show loading spinner while checking app public settings or auth
+  if (isLoadingPublicSettings || isLoadingAuth) {
     return (
-        <Routes>
-            {/* Add your page Route elements here */}
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<PageNotFound />} />
-        </Routes>
+      <div className="fixed inset-0 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+      </div>
     );
+  }
+
+  // Handle authentication errors
+  if (authError) {
+    if (authError.type === 'user_not_registered') {
+      return <UserNotRegisteredError />;
+    } else if (authError.type === 'auth_required') {
+      // Redirect to login automatically
+      navigateToLogin();
+      return null;
+    }
+  }
+
+  // Render the main app
+  return (
+    <Routes>
+    {/* Add your page Route elements here */}
+    <Route path="/" element={<Home />} />
+    <Route path="/learn" element={<Learn />} />
+    <Route path="/practice" element={<Practice />} />
+    <Route path="/explore" element={<Explore />} />
+    <Route path="/careers" element={<Careers />} />
+    <Route path="/community" element={<Community />} />
+    <Route path="/pricing" element={<Pricing />} />
+    <Route path="/about" element={<About />} />
+    <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  );
 };
 
 
 function App() {
 
-    return (
-        <AuthProvider>
-            <QueryClientProvider client={queryClientInstance}>
-                <Router>
-                    <ScrollToTop />
-                    <AuthenticatedApp />
-                </Router>
-                <Toaster />
-            </QueryClientProvider>
-        </AuthProvider>
-    )
+  return (
+    <AuthProvider>
+      <QueryClientProvider client={queryClientInstance}>
+        <Router>
+          <ScrollToTop />
+          <AuthenticatedApp />
+        </Router>
+        <Toaster />
+      </QueryClientProvider>
+    </AuthProvider>
+  )
 }
 
 export default App
