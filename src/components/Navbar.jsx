@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X, Terminal, Bell, User, LogOut, ChevronDown } from 'lucide-react';
 import { useAuth } from '@/lib/AuthContext';
 
 const navLinks = [
@@ -18,6 +18,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const { user, isAuthenticated, logout } = useAuth();
   const location = useLocation();
 
@@ -82,16 +83,47 @@ export default function Navbar() {
             {/* Right side */}
             <div className="hidden lg:flex items-center gap-3">
               {isAuthenticated && user ? (
-                <div className="flex items-center gap-4">
-                  <span className="text-sm font-medium text-slate-300">
-                    Hi, <span className="text-hacklido-cyan font-semibold">{user.email.split('@')[0]}</span>
-                  </span>
-                  <button
-                    onClick={() => logout(true)}
-                    className="text-xs font-semibold text-white bg-white/5 border border-white/10 px-3.5 py-2 rounded-xl hover:bg-white/10 transition-colors"
-                  >
-                    Logout
+                <div className="flex items-center gap-4 relative">
+                  {/* Notification Bell */}
+                  <button className="relative w-10 h-10 rounded-xl glass-subtle flex items-center justify-center text-slate-300 hover:text-white hover:border-white/20 transition-all">
+                    <Bell className="w-5 h-5" />
+                    <span className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-hacklido-cyan glow-blue animate-pulse" />
                   </button>
+
+                  {/* Profile Dropdown */}
+                  <div className="relative">
+                    <button 
+                      onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-xl glass-subtle hover:border-white/20 transition-all"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-hacklido-electric to-hacklido-purple flex items-center justify-center text-xs font-bold text-white uppercase">
+                        {user.email[0]}
+                      </div>
+                      <span className="text-sm font-semibold text-slate-300">
+                        {user.email.split('@')[0]}
+                      </span>
+                      <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${profileDropdownOpen ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    {profileDropdownOpen && (
+                      <>
+                        <div className="fixed inset-0 z-10" onClick={() => setProfileDropdownOpen(false)} />
+                        <div className="absolute right-0 mt-2 w-48 rounded-xl glass-strong border border-white/10 shadow-2xl p-1.5 z-20">
+                          <button className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+                            <User className="w-4 h-4" />
+                            Profile
+                          </button>
+                          <button 
+                            onClick={() => logout(true)}
+                            className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 rounded-lg transition-colors border-t border-white/5 mt-1 pt-2"
+                          >
+                            <LogOut className="w-4 h-4" />
+                            Logout
+                          </button>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </div>
               ) : (
                 <>
@@ -148,16 +180,31 @@ export default function Navbar() {
               ))}
               {isAuthenticated && user ? (
                 <div className="flex flex-col gap-2 mt-2 pt-2 border-t border-white/5">
-                  <span className="text-center text-sm font-medium text-slate-300">
-                    Logged in as <span className="text-hacklido-cyan">{user.email.split('@')[0]}</span>
-                  </span>
-                  <button
+                  <div className="flex items-center gap-3 px-4 py-2">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-hacklido-electric to-hacklido-purple flex items-center justify-center text-xs font-bold text-white uppercase">
+                      {user.email[0]}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-white truncate">{user.email.split('@')[0]}</p>
+                      <p className="text-[10px] text-slate-500 truncate">{user.email}</p>
+                    </div>
+                  </div>
+                  <Link 
+                    to="/profile" 
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm text-slate-300 hover:bg-white/5"
+                  >
+                    <User className="w-4 h-4" />
+                    Profile
+                  </Link>
+                  <button 
                     onClick={() => {
                       setMobileOpen(false);
                       logout(true);
                     }}
-                    className="w-full text-center text-sm font-semibold text-white bg-white/5 border border-white/10 py-2.5 rounded-lg"
+                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm text-rose-400 hover:bg-rose-500/10 text-left w-full"
                   >
+                    <LogOut className="w-4 h-4" />
                     Logout
                   </button>
                 </div>
