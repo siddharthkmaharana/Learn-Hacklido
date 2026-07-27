@@ -6,6 +6,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
+import Auth from './pages/Auth';
 // Add page imports here
 import Home from './pages/Home';
 import Learn from './pages/Learn';
@@ -42,16 +43,18 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
-    {/* Add your page Route elements here */}
-    <Route path="/" element={<Home />} />
-    <Route path="/learn" element={<Learn />} />
-    <Route path="/practice" element={<Practice />} />
-    <Route path="/explore" element={<Explore />} />
-    <Route path="/careers" element={<Careers />} />
-    <Route path="/community" element={<Community />} />
-    <Route path="/pricing" element={<Pricing />} />
-    <Route path="/about" element={<About />} />
-    <Route path="*" element={<PageNotFound />} />
+      {/* Add your page Route elements here */}
+      <Route path="/login" element={<Auth />} />
+      <Route path="/register" element={<Auth />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/learn" element={<Learn />} />
+      <Route path="/practice" element={<Practice />} />
+      <Route path="/explore" element={<Explore />} />
+      <Route path="/careers" element={<Careers />} />
+      <Route path="/community" element={<Community />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/about" element={<About />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };
