@@ -25,7 +25,7 @@ const authenticateToken = (req, res, next) => {
 // Register
 router.post("/register", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, name } = req.body;
     
     if (!email || !password) {
       return res.status(400).json({ error: "Email and password are required" });
@@ -40,12 +40,13 @@ router.post("/register", async (req, res) => {
     const user = await prisma.user.create({
       data: {
         email,
+        name,
         password: hashedPassword,
       },
     });
 
-    const token = jwt.sign({ userId: user.id, email: user.email }, JWT_SECRET, { expiresIn: "7d" });
-    res.status(201).json({ user: { id: user.id, email: user.email }, token });
+    const token = jwt.sign({ userId: user.id, email: user.email, name: user.name }, JWT_SECRET, { expiresIn: "7d" });
+    res.status(201).json({ user: { id: user.id, email: user.email, name: user.name }, token });
   } catch (error) {
     console.error("Register Error:", error);
     res.status(500).json({ error: "Server error during registration" });
@@ -71,8 +72,8 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    const token = jwt.sign({ userId: user.id, email: user.email }, JWT_SECRET, { expiresIn: "7d" });
-    res.json({ user: { id: user.id, email: user.email }, token });
+    const token = jwt.sign({ userId: user.id, email: user.email, name: user.name }, JWT_SECRET, { expiresIn: "7d" });
+    res.json({ user: { id: user.id, email: user.email, name: user.name }, token });
   } catch (error) {
     console.error("Login Error:", error);
     res.status(500).json({ error: "Server error during login" });
@@ -84,7 +85,7 @@ router.get("/me", authenticateToken, async (req, res) => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: req.user.userId },
-      select: { id: true, email: true, createdAt: true },
+      select: { id: true, email: true, name: true, createdAt: true },
     });
     
     if (!user) {

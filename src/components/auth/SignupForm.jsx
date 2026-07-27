@@ -45,7 +45,7 @@ export default function SignupForm({ onToggle }) {
         }
         setLoading(true);
         try {
-            const response = await authApi.register(email, password);
+            const response = await authApi.register(email, password, name);
             if (response && response.token) {
                 localStorage.setItem("auth_token", response.token);
             }

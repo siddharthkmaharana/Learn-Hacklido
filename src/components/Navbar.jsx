@@ -97,10 +97,10 @@ export default function Navbar() {
                       className="flex items-center gap-2 px-3 py-1.5 rounded-xl glass-subtle hover:border-white/20 transition-all"
                     >
                       <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-hacklido-electric to-hacklido-purple flex items-center justify-center text-xs font-bold text-white uppercase">
-                        {user.email[0]}
+                        {(user.name || user.email)[0]}
                       </div>
                       <span className="text-sm font-semibold text-slate-300">
-                        {user.email.split('@')[0]}
+                        {user.name || user.email.split('@')[0]}
                       </span>
                       <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${profileDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
@@ -182,10 +182,10 @@ export default function Navbar() {
                 <div className="flex flex-col gap-2 mt-2 pt-2 border-t border-white/5">
                   <div className="flex items-center gap-3 px-4 py-2">
                     <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-hacklido-electric to-hacklido-purple flex items-center justify-center text-xs font-bold text-white uppercase">
-                      {user.email[0]}
+                      {(user.name || user.email)[0]}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-white truncate">{user.email.split('@')[0]}</p>
+                      <p className="text-sm font-semibold text-white truncate">{user.name || user.email.split('@')[0]}</p>
                       <p className="text-[10px] text-slate-500 truncate">{user.email}</p>
                     </div>
                   </div>
