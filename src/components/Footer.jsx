@@ -40,7 +40,6 @@ export default function Footer() {
               <img 
                 src={logoImg} 
                 className="h-10 w-auto" 
-                style={{ filter: 'invert(1)', mixBlendMode: 'screen' }} 
                 alt="Hacklido" 
               />
             </Link>
