@@ -86,7 +86,7 @@ export default function Explore() {
           </div>
 
           {/* Featured */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-3xl overflow-hidden mb-8 group cursor-pointer hover:scale-[1.01] transition-all duration-300">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass hover-lift rounded-3xl overflow-hidden mb-8 group cursor-pointer transition-all duration-300">
             <div className="grid md:grid-cols-2">
               <div className="relative h-64 md:h-auto overflow-hidden">
                 <img src={featured.image} alt={featured.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -118,7 +118,7 @@ export default function Explore() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.06 }}
-                className="group glass rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+                className="group glass hover-lift rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer"
               >
                 <div className="relative h-40 overflow-hidden">
                   <img src={a.image} alt={a.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />

@@ -140,7 +140,7 @@ export default function Community() {
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {discussions.map((d) => (
-                <div key={d.title} className="glass rounded-2xl p-5 hover:scale-[1.01] transition-all duration-300 cursor-pointer group">
+                <div key={d.title} className="glass hover-lift rounded-2xl p-5 transition-all duration-300 cursor-pointer group">
                   <div className="flex items-start justify-between mb-3">
                     <span className="px-2 py-0.5 rounded-md glass-subtle text-[10px] font-medium text-hacklido-cyan">{d.category}</span>
                     <TrendingUp className="w-4 h-4 text-slate-600 group-hover:text-hacklido-cyan transition-colors" />

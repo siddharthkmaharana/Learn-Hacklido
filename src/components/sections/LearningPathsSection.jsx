@@ -50,7 +50,7 @@ export default function LearningPathsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="group glass rounded-2xl p-5 hover:scale-[1.03] transition-all duration-300"
+              className="group glass hover-lift rounded-2xl p-5 transition-all duration-300"
             >
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110"

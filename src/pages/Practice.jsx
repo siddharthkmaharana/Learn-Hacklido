@@ -72,7 +72,7 @@ export default function Practice() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.12 }}
-                className="glass rounded-3xl p-6 hover:scale-[1.01] transition-all duration-300"
+                className="glass hover-lift rounded-3xl p-6 transition-all duration-300"
               >
                 <div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"

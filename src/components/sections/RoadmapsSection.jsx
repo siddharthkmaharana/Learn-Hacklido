@@ -49,7 +49,7 @@ export default function RoadmapsSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="group glass rounded-2xl p-5 hover:scale-[1.04] transition-all duration-300 cursor-pointer"
+              className="group glass hover-lift rounded-2xl p-5 transition-all duration-300 cursor-pointer"
             >
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110"

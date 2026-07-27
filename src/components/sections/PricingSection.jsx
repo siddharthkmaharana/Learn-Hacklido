@@ -84,10 +84,10 @@ export default function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`relative rounded-3xl p-7 transition-all duration-300 hover:scale-[1.02] ${
+              className={`relative rounded-3xl p-7 transition-all duration-300 hover-lift ${
                 plan.highlighted
                   ? 'glass-strong border-2'
-                  : 'glass hover:border-white/10'
+                  : 'glass'
               }`}
               style={plan.highlighted ? { borderColor: `${plan.accent}40`, boxShadow: `0 0 50px ${plan.accent}15` } : {}}
             >

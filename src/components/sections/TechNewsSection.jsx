@@ -58,7 +58,7 @@ export default function TechNewsSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="group glass rounded-3xl overflow-hidden hover:scale-[1.01] transition-all duration-300"
+            className="group glass hover-lift rounded-3xl overflow-hidden transition-all duration-300"
           >
             <div className="relative h-64 overflow-hidden">
               <img src={featured.image} alt={featured.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -94,7 +94,7 @@ export default function TechNewsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group glass rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-300"
+                className="group glass hover-lift rounded-2xl overflow-hidden transition-all duration-300"
               >
                 <div className="relative h-32 overflow-hidden">
                   <img src={a.image} alt={a.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />

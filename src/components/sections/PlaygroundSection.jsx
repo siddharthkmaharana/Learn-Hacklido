@@ -59,7 +59,7 @@ export default function PlaygroundSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12 }}
-              className="group relative glass rounded-3xl p-7 overflow-hidden hover:scale-[1.02] transition-all duration-300"
+              className="group relative glass hover-lift rounded-3xl p-7 overflow-hidden transition-all duration-300"
             >
               {/* Glow */}
               <div

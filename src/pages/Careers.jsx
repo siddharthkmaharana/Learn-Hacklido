@@ -82,7 +82,7 @@ export default function Careers() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.04 }}
-                className="group glass rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+                className="group glass hover-lift rounded-2xl p-6 transition-all duration-300 cursor-pointer"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div
