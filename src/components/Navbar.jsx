@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Terminal } from 'lucide-react';
+import { useAuth } from '@/lib/AuthContext';
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -17,6 +18,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { user, isAuthenticated, logout } = useAuth();
   const location = useLocation();
 
   useEffect(() => {
@@ -79,18 +81,34 @@ export default function Navbar() {
 
             {/* Right side */}
             <div className="hidden lg:flex items-center gap-3">
-              <Link
-                to="/login"
-                className="text-sm font-medium text-slate-300 hover:text-white px-4 py-2 transition-colors"
-              >
-                Login
-              </Link>
-              <Link
-                to="/register"
-                className="text-sm font-semibold text-hacklido-deepest bg-gradient-to-r from-hacklido-electric to-hacklido-cyan px-5 py-2.5 rounded-xl hover:shadow-lg hover:shadow-hacklido-electric/30 transition-all duration-300 hover:scale-105"
-              >
-                Sign Up
-              </Link>
+              {isAuthenticated && user ? (
+                <div className="flex items-center gap-4">
+                  <span className="text-sm font-medium text-slate-300">
+                    Hi, <span className="text-hacklido-cyan font-semibold">{user.email.split('@')[0]}</span>
+                  </span>
+                  <button
+                    onClick={() => logout(true)}
+                    className="text-xs font-semibold text-white bg-white/5 border border-white/10 px-3.5 py-2 rounded-xl hover:bg-white/10 transition-colors"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="text-sm font-medium text-slate-300 hover:text-white px-4 py-2 transition-colors"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="text-sm font-semibold text-hacklido-deepest bg-gradient-to-r from-hacklido-electric to-hacklido-cyan px-5 py-2.5 rounded-xl hover:shadow-lg hover:shadow-hacklido-electric/30 transition-all duration-300 hover:scale-105"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
             </div>
 
             {/* Mobile toggle */}
@@ -128,22 +146,39 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div className="flex gap-2 mt-2 pt-2 border-t border-white/5">
-                <Link
-                  to="/login"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex-1 text-center text-sm font-medium text-slate-300 px-4 py-2.5 rounded-lg glass-subtle"
-                >
-                  Login
-                </Link>
-                <Link
-                  to="/register"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex-1 text-center text-sm font-semibold text-hacklido-deepest bg-gradient-to-r from-hacklido-electric to-hacklido-cyan px-4 py-2.5 rounded-lg"
-                >
-                  Sign Up
-                </Link>
-              </div>
+              {isAuthenticated && user ? (
+                <div className="flex flex-col gap-2 mt-2 pt-2 border-t border-white/5">
+                  <span className="text-center text-sm font-medium text-slate-300">
+                    Logged in as <span className="text-hacklido-cyan">{user.email.split('@')[0]}</span>
+                  </span>
+                  <button
+                    onClick={() => {
+                      setMobileOpen(false);
+                      logout(true);
+                    }}
+                    className="w-full text-center text-sm font-semibold text-white bg-white/5 border border-white/10 py-2.5 rounded-lg"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <div className="flex gap-2 mt-2 pt-2 border-t border-white/5">
+                  <Link
+                    to="/login"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex-1 text-center text-sm font-medium text-slate-300 px-4 py-2.5 rounded-lg glass-subtle"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex-1 text-center text-sm font-semibold text-hacklido-deepest bg-gradient-to-r from-hacklido-electric to-hacklido-cyan px-4 py-2.5 rounded-lg"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
             </div>
           </motion.div>
         )}
