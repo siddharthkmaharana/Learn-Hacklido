@@ -87,87 +87,26 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Animated dashboard */}
+          {/* Right: Mascot */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
+            className="flex justify-center lg:justify-end"
           >
-            {/* Main glass panel */}
-            <div className="relative glass-strong rounded-3xl p-5 shadow-2xl shadow-black/30 animate-float-slow">
-              {/* Skill chips */}
-              <div className="grid grid-cols-3 gap-3 mb-4">
-                {heroSkills.map((skill) => (
-                  <motion.div
-                    key={skill.label}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + skill.delay }}
-                    className="glass-subtle rounded-xl p-3 flex flex-col items-center gap-1.5 hover:scale-105 transition-transform duration-300"
-                    style={{ boxShadow: `0 0 20px ${skill.color}15` }}
-                  >
-                    <skill.icon className="w-5 h-5" style={{ color: skill.color }} />
-                    <span className="text-[10px] font-medium text-slate-300">{skill.label}</span>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Mini chart */}
-              <div className="glass-subtle rounded-xl p-4 mb-4">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-medium text-slate-400">Learning Progress</span>
-                  <span className="text-xs font-mono text-hacklido-cyan">+24% this week</span>
-                </div>
-                <div className="flex items-end gap-1.5 h-16">
-                  {[40, 55, 35, 70, 50, 85, 65].map((h, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ height: 0 }}
-                      animate={{ height: `${h}%` }}
-                      transition={{ delay: 0.8 + i * 0.1, type: 'spring', stiffness: 200 }}
-                      className="flex-1 rounded-t"
-                      style={{
-                        background: `linear-gradient(to top, #28B6F6, #00E5FF)`,
-                        opacity: 0.3 + (h / 100) * 0.7,
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* Terminal */}
-              <AnimatedTerminal />
-            </div>
-
-            {/* Floating cards */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1, type: 'spring' }}
-              className="absolute -left-4 top-20 glass-strong rounded-2xl px-4 py-3 shadow-xl animate-float-medium"
-              style={{ animationDelay: '1s' }}
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-hacklido-emerald" />
-                <span className="text-xs font-medium text-white">Lab Completed</span>
-              </div>
-              <p className="text-[10px] text-slate-400 mt-0.5">+250 XP earned</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, type: 'spring' }}
-              className="absolute -right-4 bottom-16 glass-strong rounded-2xl px-4 py-3 shadow-xl animate-float-slow"
-              style={{ animationDelay: '2s' }}
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-base">🏆</span>
-                <span className="text-xs font-medium text-white">Achievement Unlocked</span>
-              </div>
-              <p className="text-[10px] text-slate-400 mt-0.5">7-day streak!</p>
-            </motion.div>
+            <Link to="/practice">
+              <img
+                src="https://learn.hacklido.com/api/uploads/category_thumbs/rahul_1778220490.png?t=1778220491986"
+                style={{
+                  width: "580px",
+                  height: "auto",
+                  display: "block",
+                  filter: "drop-shadow(0 0 18px rgba(0,212,255,0.7)) drop-shadow(0 0 40px rgba(0,150,255,0.4))",
+                  animation: "mascotFloat 4s ease-in-out infinite",
+                }}
+                alt="Hacklido Mascot"
+              />
+            </Link>
           </motion.div>
         </div>
       </div>
