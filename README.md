@@ -1,5 +1,7 @@
 # Hacklido Learn — Platform Analysis & Future Blueprint
 
+![Hacklido Learn Hero](hero.png)
+
 Welcome to the documentation and development roadmap for **Hacklido Learn** (`https://learn.hacklido.com/`). This README provides a comprehensive breakdown of the current landing page, functional modules, and learning structure of the Hacklido Learn platform. 
 
 Furthermore, it outlines a **futuristic, professional architecture blueprint** designed to elevate the user experience, aesthetic design, and technical capabilities of the platform to a state-of-the-art interactive learning management system (LMS).
