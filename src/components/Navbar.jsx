@@ -50,7 +50,6 @@ export default function Navbar() {
               <img 
                 src={logoImg} 
                 className="h-10 w-auto transition-all duration-300 group-hover:scale-105" 
-                style={{ filter: 'invert(1) hue-rotate(180deg)', mixBlendMode: 'screen' }} 
                 alt="Hacklido" 
               />
             </Link>
