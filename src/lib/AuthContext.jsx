@@ -69,6 +69,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const updateProfile = async (data) => {
+    const response = await authApi.updateProfile(data);
+    if (response && response.user) {
+      setUser(response.user);
+    }
+    return response;
+  };
+
   const navigateToLogin = () => {
     window.location.href = '/login';
   };
@@ -85,7 +93,8 @@ export const AuthProvider = ({ children }) => {
       logout,
       navigateToLogin,
       checkUserAuth,
-      checkAppState
+      checkAppState,
+      updateProfile
     }}>
       {children}
     </AuthContext.Provider>

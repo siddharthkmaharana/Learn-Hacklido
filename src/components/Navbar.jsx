@@ -109,10 +109,14 @@ export default function Navbar() {
                       <>
                         <div className="fixed inset-0 z-10" onClick={() => setProfileDropdownOpen(false)} />
                         <div className="absolute right-0 mt-2 w-48 rounded-xl glass-strong border border-white/10 shadow-2xl p-1.5 z-20">
-                          <button className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+                          <Link 
+                            to="/profile"
+                            onClick={() => setProfileDropdownOpen(false)}
+                            className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                          >
                             <User className="w-4 h-4" />
                             Profile
-                          </button>
+                          </Link>
                           <button 
                             onClick={() => logout(true)}
                             className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 rounded-lg transition-colors border-t border-white/5 mt-1 pt-2"
