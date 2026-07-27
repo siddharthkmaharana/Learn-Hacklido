@@ -82,7 +82,7 @@ export default function Pillars() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, type: 'spring', stiffness: 200, damping: 20 }}
-              className="group glass rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+              className="group glass hover-lift rounded-2xl p-6 transition-all duration-300 cursor-pointer"
               style={{ '--glow-color': p.color }}
             >
               <div
