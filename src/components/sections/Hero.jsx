@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Play, Compass, ArrowRight, Cpu, Shield, Cloud, Code, GitBranch, Database } from 'lucide-react';
 import AnimatedTerminal from '@/components/AnimatedTerminal';
+import mascotImg from '@/mascot.png';
 
 const heroSkills = [
   { icon: Cpu, label: 'AI', color: '#7C4DFF', delay: 0 },
@@ -96,7 +97,7 @@ export default function Hero() {
           >
             <Link to="/practice">
               <img
-                src="https://learn.hacklido.com/api/uploads/category_thumbs/rahul_1778220490.png?t=1778220491986"
+                src={mascotImg}
                 style={{
                   width: "580px",
                   height: "auto",
