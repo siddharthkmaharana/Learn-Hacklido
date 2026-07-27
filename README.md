@@ -1,6 +1,15 @@
 # Hacklido Learn — Platform Analysis & Future Blueprint
-
-![Hacklido Learn Hero](hero.png)
+<a href="/challenges">
+  <img src="https://learn.hacklido.com/api/uploads/category_thumbs/rahul_1778220490.png?t=1778220491986" style="width:580px;height:auto;display:block;
+    filter: drop-shadow(0 0 18px rgba(0,212,255,0.7)) drop-shadow(0 0 40px rgba(0,150,255,0.4));
+    animation: mascotFloat 4s ease-in-out infinite;" alt="Hacklido Mascot">
+<style>
+@keyframes mascotFloat {
+  0%,100% { transform: translateY(0px); filter: drop-shadow(0 0 18px rgba(0,212,255,0.7)) drop-shadow(0 0 40px rgba(0,150,255,0.4)); }
+  50%      { transform: translateY(-12px); filter: drop-shadow(0 0 28px rgba(0,212,255,1)) drop-shadow(0 0 60px rgba(0,180,255,0.6)); }
+}
+</style>
+</a>
 
 Welcome to the documentation and development roadmap for **Hacklido Learn** (`https://learn.hacklido.com/`). This README provides a comprehensive breakdown of the current landing page, functional modules, and learning structure of the Hacklido Learn platform. 
 
