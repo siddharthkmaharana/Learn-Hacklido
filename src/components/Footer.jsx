@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Terminal, Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import logoImg from '@/logo.png';
 
 const footerLinks = {
   Platform: [
@@ -35,13 +36,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
           {/* Brand + Newsletter */}
           <div className="col-span-2">
-            <Link to="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-hacklido-electric to-hacklido-purple flex items-center justify-center glow-blue">
-                <Terminal className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-lg font-heading font-bold text-white">
-                Hacklido<span className="text-gradient-cyan"> Learn</span>
-              </span>
+            <Link to="/" className="flex items-center mb-4">
+              <img 
+                src={logoImg} 
+                className="h-10 w-auto" 
+                style={{ filter: 'invert(1)', mixBlendMode: 'screen' }} 
+                alt="Hacklido" 
+              />
             </Link>
             <p className="text-sm text-slate-400 max-w-xs mb-5 leading-relaxed">
               One playground. Every tech skill. Learn, practice, and build your tech career in one connected experience.
