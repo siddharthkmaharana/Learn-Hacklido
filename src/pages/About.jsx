@@ -60,20 +60,59 @@ export default function About() {
             {values.map((v, i) => (
               <motion.div
                 key={v.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={{
+                  hidden: { opacity: 0, y: 35 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { delay: i * 0.12, duration: 0.6, ease: 'easeOut' }
+                  },
+                  hover: {
+                    y: -10,
+                    borderColor: `${v.color}40`,
+                    boxShadow: `0 20px 40px -15px ${v.color}30`,
+                    backgroundColor: 'rgba(16, 26, 50, 0.75)'
+                  }
+                }}
+                className="glass rounded-2xl p-6 border border-white/5 transition-colors duration-300 cursor-pointer relative overflow-hidden group"
               >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                {/* Soft background glow on hover */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: `radial-gradient(circle 130px at 50% 15%, ${v.color}15, transparent 80%)`
+                  }}
+                />
+
+                <motion.div
+                  variants={{
+                    hover: {
+                      scale: 1.12,
+                      rotate: [0, -10, 10, 0],
+                      boxShadow: `0 0 35px ${v.color}40`
+                    }
+                  }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300"
                   style={{ background: `${v.color}15`, boxShadow: `0 0 25px ${v.color}15` }}
                 >
                   <v.icon className="w-6 h-6" style={{ color: v.color }} />
-                </div>
-                <h3 className="font-heading font-bold text-white mb-2">{v.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{v.desc}</p>
+                </motion.div>
+                <h3 
+                  className="font-heading font-bold text-white mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text"
+                  style={{ 
+                    backgroundImage: `linear-gradient(to right, #ffffff, ${v.color})`,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'unset' 
+                  }}
+                >
+                  {v.title}
+                </h3>
+                <p className="text-sm text-slate-400 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">{v.desc}</p>
               </motion.div>
             ))}
           </div>
